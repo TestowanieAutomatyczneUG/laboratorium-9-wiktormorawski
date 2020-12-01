@@ -46,6 +46,9 @@ class TestCarMock(unittest.TestCase):
 
     @patch.object(Car, 'getEngineTemperature')
     def test_getEngineTemperature_temp_above_ok(self, mock_method):
-        mock_method.return_value = 'Temperature above normal'
+        mock_method.return_value = 'Temperature abovenormal'
         result = self.test_object.getEngineTemperature()
         self.assertEqual(mock_method.return_value, result, 'Temp not above OK')
+
+    def tearDown(self):
+        self.test_object = None
